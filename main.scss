@@ -1,0 +1,74 @@
+@import 'config';
+@import 'menu';
+* {
+    box-sizing: border-box;
+
+}
+
+body {
+    @include background;
+    background-color: $primary;   
+    color: white; 
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+
+}
+
+//headings
+h1, h2, h3 {
+    margin: 0;
+    font-weight: 400;
+    
+    &.primary-text {
+        font-size: 5rem;
+        
+    }
+
+    &.bio {
+        margin-bottom: 2rem;
+        padding: 0.2rem 1rem;
+        background: rgba(lighten($primary, 2), 0.5);
+    }
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+header {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+
+}
+
+.secondary-text {
+    color: $seconday;
+}
+
+main {
+    padding: 4rem; //here is where we controll the box of things in main 
+    height: 100%;
+
+    .icons {
+        a {
+            padding: 0.4rem;
+
+            &:hover {
+                color: $seconday;
+                @include easeOut;
+            }
+        }
+    }
+
+    &#home {               //this is like anything with the id of home in MAIN will get effected by these rules only 
+        overflow: hidden;
+        h1 {             // here we want to control the h1 in that id in home 
+          margin-top: 20vh; //vh is like the % of the page, in this case its push it from top 20%
+          
+        }
+    }
+}

@@ -1,0 +1,30 @@
+$primary: #444;
+$seconday: #eece1a;
+$background-on: true;
+$background: url(../img/b-5.jpg);
+$background-opacity: 0.5;
+
+
+@mixin easeOut {
+    transition: all 0.5s ease-out;
+}
+
+@mixin background { //mixin is like a function .. u design how it work with rules that will be implemented to sass
+    @if $background-on {
+        &#bg-img {
+            background: $background;
+            background-attachment: fixed;
+            background-size: cover;
+            .overlay {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -2;
+                background: rgba($primary, $background-opacity); // without z-index being lower than else it will be top of the items in this case we want it no be inbetween the text and background
+
+            }
+        }   
+    }
+}
